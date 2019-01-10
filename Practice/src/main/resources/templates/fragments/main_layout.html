@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<!-- the following says: replace this div with a fragment called header 
+that can be found in the file header.html located in the fragments folder...
+or "fragments/header:" -> is the file path 
+and ":header" is the name of the fragment-->
+<div th:replace="fragments/header::header">
+</div>
+
+<div layout:fragment="content">
+
+</div>
+
+<div th:replace="fragments/footer::footer">
+</div>
+</body>
+</html>
