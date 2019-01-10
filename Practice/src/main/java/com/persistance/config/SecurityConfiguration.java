@@ -36,6 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		http.csrf().disable(); // cross site reference
 		http.authorizeRequests()
+			.antMatchers("static/**", "/webjars/**").permitAll()
 			.antMatchers("**/secured/**").authenticated()/* whenever there is a URL request with
 			secured in it, spring security will have to make sure that the user is authenticated
 			by checking the UserDetailsService and will move to the login page if that

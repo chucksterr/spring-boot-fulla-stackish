@@ -36,7 +36,7 @@ private UserRepository userRepository;
 	@RequestParam String password,
  // @RequestParam means it is a parameter from the GET or POST request
 	@ModelAttribute Users user) {
-	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+ //	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
  // Create ROLE_USER through role class
 	Role role1 = new Role("USER");
 	List<Role> roles = new ArrayList<>();

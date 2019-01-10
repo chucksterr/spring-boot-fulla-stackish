@@ -44,8 +44,8 @@ public class UserService {
 		userRepository.save(user);	
 	}
 	
-	public Users findOne(String email) {
-		return userRepository.findOne(email);
-	}
+//	public Users findOne(String email) {
+//		return userRepository.findOne(email);
+//	}
 	
 }
