@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Persistence Practice</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Register User</h1>
+    <form action="#" th:action="@{/add}" th:object="${users}" method="post">
+    <!--IMPORTANT th:objects REFERS TO THE ACTUAL MODEL NAME  -->
+    	<p>Username: <input type="text" name="username" th:field="*{username}"/></p>
+        <p>Email: <input type="text" name="email" th:field="*{email}"/></p>
+        <p>Password: <input type="text" name="password"/></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>
