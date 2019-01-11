@@ -15,7 +15,7 @@ what each line does will be found in this file.
 //	// arguments of the object and pass them as attributes to the destination.
 //	// Great for form handling
 //    public String registerForm21(Model model) {
-//        model.addAttribute("users", new Users());
+//        model.addAttribute("users", new Users());// will bind the input fields of the form to the users object
 //        model.addAttribute("role", new Role());
 //        return "index";
 //    }

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Le Room de Chat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div layout:fragment="content" class="container">
+	<h1>Register User</h1>
+    <form action="#" th:action="@{/register}" th:object="${users}" method="post">
+    <!--IMPORTANT th:objects REFERS TO THE ACTUAL MODEL NAME  -->
+    	 
+    <div class="alert alert-info" th:if="${exist}">
+    	<p class="text text-center">
+    	 User with this email already exist	
+    	</p>
+    </div>
+    	
+    	<div class="form-group">
+    	<label for="username" class="form-control-label">Username</label>
+    	<input type="text" class="form-control" id="username" name="username" th:field="*{username}"/>
+    	<div class="text text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+    	</div>
+    	
+    	<div class="form-group">
+    	<label for="email" class="form-control-label">Email</label>
+        <input type="text" class="form-control" id="email" name="email" th:field="*{email}"/>
+        <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        </div>
+        
+        <div class="form-group">
+    	<label for="username" class="form-control-label">Password</label>
+        <input type="text" class="form-control" id="password" name="password"/>
+        <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+</body>
+</html>

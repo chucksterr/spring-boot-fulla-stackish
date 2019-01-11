@@ -10,6 +10,7 @@ import com.persistance.models.Users;
 public interface UserRepository extends JpaRepository<Users, Integer>{
 
 	Optional <Users> findByUsername(String username);
+	Users findByEmail(String email);
 	// Users findOne(String email);
 	// This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 	// CRUD refers Create, Read, Update, Delete	

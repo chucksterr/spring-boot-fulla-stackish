@@ -28,7 +28,8 @@ public class UserService {
 		Role userRole = new Role("USER"); 
 		List<Role> roles = new ArrayList<>();
 		roles.add(userRole);
-		user.setRoles(roles); 
+		user.setRoles(roles);
+		user.setActive(1);
 		userRepository.save(user);		
 	}
 	// only the method above is documented... it's the same code different method name and string argument
@@ -41,11 +42,19 @@ public class UserService {
 		List<Role> roles = new ArrayList<>();
 		roles.add(userRole);
 		user.setRoles(roles); 
+		user.setActive(1);
 		userRepository.save(user);	
 	}
+	public boolean isUserPresent(String email) {
+		
+		Users u= userRepository.findByEmail(email);
+		if(u != null)
+			return true;
+		return false;
+	}
 	
-//	public Users findOne(String email) {
-//		return userRepository.findOne(email);
-//	}
+	public Users findOne(String email) {
+		return userRepository.findByEmail(email);
+	}
 	
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!-- <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Persitance practice: Handling Form Submission</title>
@@ -7,10 +7,28 @@
 <body>
 	<h1>The following user information were saved (data binded from form)</h1>
     <p th:text="'username: ' + ${users.username}" /> 
-    <!-- this comes from the model.setAttribute holding the users String object
+    this comes from the model.setAttribute holding the users String object
     	 which we binded to the form and to which we have attached fields...
-    	 those fields are what we are now calling -->
+    	 those fields are what we are now calling
     <p th:text="'email: ' + ${users.email}" />
     <a href="/">Create another user</a>
+</body>
+</html> -->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Le Room de Chat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div layout:fragment="content" class="container">
+	<div class="jumbotron">
+		<p th:text="'username: ' + ${users.username} +
+		'   has been successfully registered! Please sign in to continue!!!' " />
+	</div>
+
+</div>
 </body>
 </html>
