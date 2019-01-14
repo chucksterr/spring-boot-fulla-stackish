@@ -27,15 +27,14 @@ public class RegisterCtrl {
     }
 	
 	@PostMapping(path="/register")
-	public String registerUser(@Valid Users user, BindingResult bindingResult,
-			Model model) {
+	public String registerUser(@Valid Users user, BindingResult bindingResult, Model model) {
 		
-		if(bindingResult.hasErrors()) {	
+		if(bindingResult.hasErrors()) {	//comparing form validation params to users object
 			return "register";
 		}
 		
 		if(userService.isUserPresent(user.getEmail())) {
-			model.addAttribute("exist", true);
+			model.addAttribute("exist", true); // show error message DIV if user exists in DB
 			return "register";
 		}
 		userService.createUser(user);

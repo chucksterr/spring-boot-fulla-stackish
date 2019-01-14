@@ -13,7 +13,7 @@
     <!--IMPORTANT th:objects REFERS TO THE ACTUAL MODEL NAME  -->
     	 
     <div class="alert alert-danger" th:if="${param.error}">
-    <!-- this comes from spring security in case of a login error -->
+    <!-- param.error comes from spring security. In case of a login error, message below will show -->
     <h2>Invalid email or password</h2>
     </div>
     	

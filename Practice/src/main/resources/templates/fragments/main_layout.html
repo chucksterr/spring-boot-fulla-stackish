@@ -14,8 +14,10 @@ and ":header" is the name of the fragment-->
 <div th:replace="fragments/header::header">
 </div>
 
-<div layout:fragment="content">
-
+<div layout:fragment="content"> 
+<!-- when layout:fragment="content is called inside a div, the header and will be placed 
+inside the body of that page... kind of emulation ng-view in Angular 1... Could create
+an SPA concept with Thymeleaf" -->
 </div>
 
 <div th:replace="fragments/footer::footer">
