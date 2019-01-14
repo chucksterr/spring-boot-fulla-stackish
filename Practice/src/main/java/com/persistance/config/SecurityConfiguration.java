@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.persistance.repository.UserRepository;
@@ -26,29 +27,38 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		auth.userDetailsService(userDetailsService) /*retrieve the user object with all the info to be used by spring security*/
-		.passwordEncoder(getPasswordEncoder()); /*spring boot will request a password to be
+		.passwordEncoder(passwordEncoder()); /*spring boot will request a password to be
 		 encoded... this can be bypassed... check the getPasswordEncoder() below*/ 
 	}
 	
+	@Autowired
+	public PasswordEncoder passwordEncoder() {
+
+		return new BCryptPasswordEncoder();
+	}
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// super.configure(http);
 		
 		http.csrf().disable(); // cross site reference
 		http.authorizeRequests()
-			.antMatchers("static/**", "/webjars/**").permitAll()
-			.antMatchers("**/secured/**").authenticated()/* whenever there is a URL request with
-			secured in it, spring security will have to make sure that the user is authenticated
+			.antMatchers("static/**", "/webjars/**", "/", "/register","/css/**").permitAll()
+			//.antMatchers("**/secured/**").authenticated() whenever there is a URL request with
+			/*secured in it, spring security will have to make sure that the user is authenticated
 			by checking the UserDetailsService and will move to the login page if that
 			is not the case*/
-			.anyRequest().permitAll()/*for any other request, no need for authentication*/
-			.and().formLogin().permitAll();/*if we do not specify a login page it will direct
+			/*.anyRequest().permitAll()/*for any other request, no need for authentication*/
+			.anyRequest().authenticated()/*any request that are not for the URI above will require authentication*/
+			/*.and().formLogin().permitAll();if we do not specify a login page it will direct
 			to the default login modal provided by spring security, if we wish to redirect
-			to a custom login page : formLogin().loginPage("/loginpage").permitAll*/
+			to a custom login page :*/ 
+			.and().formLogin().loginPage("/login").permitAll()
+			.defaultSuccessUrl("/users").and().logout().logoutSuccessUrl("/login");
 					
 	}
 	
-	private PasswordEncoder getPasswordEncoder(){
+/*	private PasswordEncoder getPasswordEncoder(){
 		return new PasswordEncoder() {
 
 			@Override
@@ -60,5 +70,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				return true;
 			}
 		};
-	}
+	}*/
 }

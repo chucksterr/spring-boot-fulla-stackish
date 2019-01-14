@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Le Room de Chat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div layout:fragment="content" class="container">
+	<form action="/users" class="form-inline" method="post"> 
+		<div class="form-group mb-2">
+			<input type="text" class="form-control" name="username" placeholder="Search"/>
+			<input type="submit" value="Search" class="btn btn-primary border"> 
+		</div>
+	</form>
+	<div class="card">
+		<div class="card card-body">
+			<table class="table table-hover">
+			 <thead>
+			 	<tr>
+			 	<th>Name</th>
+			 	<th>Email</th>
+			 	<th>Chat</th>
+			 	</tr>
+			 </thead>
+			 <tbody>
+			 	<tr th:each="user:${users}"><!-- thymeleaf dialect for ==> for each user in users  -->
+			 		<td th:text="${user.username}">
+			 		<td th:text="${user.email}">
+			 		<td><a href="#" class="btn btn-dark">Start Chatting</a></td>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</body>
+</html>

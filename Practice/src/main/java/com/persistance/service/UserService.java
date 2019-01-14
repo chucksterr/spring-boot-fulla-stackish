@@ -56,5 +56,17 @@ public class UserService {
 	public Users findOne(String email) {
 		return userRepository.findByEmail(email);
 	}
+	public List<Users> findAll() {
+		
+		return userRepository.findAll();
+		/*findAll() is extended from the JpaRepository Interface, it returns a list of all objects of  
+		 * the data type declared in the customer repository interface. In this case Users
+		 * the Repository interface takes care of the CRUD operations with the database 
+		 * (NO MORE ANNOYING BOILER PLATE CODE)*/
+	}
+	public List<Users> findByName(String username) {
+
+		return userRepository.findByUsernameLike(username);
+	}
 	
 }

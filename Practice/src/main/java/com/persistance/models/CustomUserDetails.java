@@ -17,8 +17,8 @@ public class CustomUserDetails extends Users implements UserDetails {
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		/* Spring security uses this particular authority to determine
-		 * what kind of access someone will have like views and methods*/
+		/* Spring security uses this particular method to determine
+		 * what kind of views the user will be allowed to access */
 		List<SimpleGrantedAuthority> list = 
 		 getRoles() // returns a set of roles
 		.stream() // with this we can output the returned set of roles

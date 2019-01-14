@@ -28,7 +28,9 @@ public class Users {
 	private int id;
 	private int active;
 	@Email
-	@NotEmpty
+	@NotEmpty/*(message="enter custom message here")this attribute can modify the empty field 
+	validation error... or you can create various validation.hasErrors() messages
+	in the "messages.properties" file...*/
 	@Column(unique=true)
 	private String email;
 	@NotEmpty

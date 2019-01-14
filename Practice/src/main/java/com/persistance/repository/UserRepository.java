@@ -1,5 +1,6 @@
 package com.persistance.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,4 +17,5 @@ public interface UserRepository extends JpaRepository<Users, Integer>{
 	// CRUD refers Create, Read, Update, Delete	
 	/* interacting with the repository will interact with database in our stead
 	   we deal with the DB at the java level, SPRING takes care of persistence */
+	List<Users> findByUsernameLike(String username);
 }
