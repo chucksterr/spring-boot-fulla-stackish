@@ -17,5 +17,10 @@ public class IndexCtrl {
 		
 		return "login";
 	}
-
+	
+	@GetMapping("/home")
+	public String showHomePageWhenLoggedIn() {
+		
+		return "home";
+	}
 }

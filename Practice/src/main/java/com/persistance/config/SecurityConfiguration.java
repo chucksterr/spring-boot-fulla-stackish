@@ -54,7 +54,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			to the default login modal provided by spring security, if we wish to redirect
 			to a custom login page :*/ 
 			.and().formLogin().loginPage("/login").permitAll()
-			.defaultSuccessUrl("/users").and().logout().logoutSuccessUrl("/login");
+			.defaultSuccessUrl("/home").and().logout().logoutSuccessUrl("/login");
 					
 	}
 	

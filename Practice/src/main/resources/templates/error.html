@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Le Room de Chat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div layout:fragment="content" class="container">
+	
+<div >
+<h2>THERE WAS AN ERROR... <span th:text=${message}> | </span> <span th:text=${status} class="text text-danger"></span></h2>
+</div>
+<div>
+<h3 class="text text-warning"> If the error code is 403; you do not have access to this page</h3>
+<h3 class="text text-warning"> If the error code is 404; this page does not exist</h3>
+</div>
+</div>
+</body>
+</html>

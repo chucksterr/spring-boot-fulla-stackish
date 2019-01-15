@@ -21,11 +21,15 @@ public class Role {
 	@ManyToMany(mappedBy = "roles")
 	@JsonBackReference
 	private List<Users> users;
-	/////////////////////////////
+	///////////CONSTRUCTORS//////////////////
 	public Role() {
 		super();
 	}
-
+	public Role(String role) {
+		super();
+		this.role = role;
+	}
+	/////////////////////////////
 	public int getRole_id() {
 		return role_id;
 	}
@@ -51,10 +55,5 @@ public class Role {
 		this.users = users;
 	}	 
 	/////////////////////////////
-
-	public Role(String role) {
-		super();
-		this.role = role;
-	}
 	
 }
