@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.persistance.models.Role;
 import com.persistance.models.Users;
 import com.persistance.service.UserService;
 
