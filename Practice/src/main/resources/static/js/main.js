@@ -15,7 +15,7 @@ var colors = [
 ];
 
 function connect(){
-	username = document.querySelector('#name').value.trim();
+	username = document.querySelector('#name1').innerHTML;
 	
 	if(username){
 		
@@ -24,7 +24,7 @@ function connect(){
 		
 		stompClient.connect({}, onConnected, onError);
 	}
-	event.preventDefault;
+//	event.preventDefault;
 }
 
 connect();
@@ -40,29 +40,29 @@ function onConnected(){
 					  JSON.stringify({sender: username, type : 'JOIN'})
 	)
 	
-	connnectingElement.classList.add('hidden');
+	connectingElement.style.visibility = "hidden";
 }
 
 function onError(error){
 	
-	connectingElement.textContent = 'Could not connect to Websocket server. Please refresh this page to try again';
-	connectingElement.style.color = 'red';
+	connectingElement.textContent = 'Could not connect to Websocket. Refresh this page to try again';
+	connectingElement.style.color = 'orange';
 }
 
 function sendMessage(event){
 	
 	var messageContent = messageInput.value.trim();
 	
-	if(messageContent && stompclient){// if message box IS NOT empty and there is an active web socket connection
+	if(messageContent && stompClient){// if message box IS NOT empty and there is an active web socket connection
 		
 		var chatMessage = {
 				
 				sender : username,
-				content: messageInput.value;
-				type:    'CHAT';
+				content: messageInput.value,
+				type:    'CHAT'
 		};
 		
-		stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+		stompClient.send("/app/chat.sendMsg", {}, JSON.stringify(chatMessage));
 		messageInput.value = '';
 	}
 	event.preventDefault();

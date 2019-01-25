@@ -6,9 +6,7 @@
     <title>Le Room de Chat</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  <!--  <link rel="stylesheet" href="/static/css/main.css" /> -->   
-<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js}"></script>
-<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js}"></script>
-<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
 </head>
 <body>
 <div layout:fragment="content" class="container">
@@ -16,10 +14,10 @@
 	<div id="chat-page" class="">
         <div class="chat-container">
             <div class="chat-header">
-                <h2>Public chat room</h2>
+                <h2 id="title1">Public chat room</h2>
             </div>
             <div class="connecting">
-            	Connecting <span id="name" th:text="|${name}|"> </span>    
+            	Connecting... <span id="name1" th:text="|${name}|"></span>  <!-- th:text="|${name}|" -->   
             </div>
             <ul id="messageArea">
 
@@ -35,7 +33,7 @@
         </div>
     </div>
 </div>
-  
+ 
   </body>
 </body>
 </html>
