@@ -3235,7 +3235,7 @@ input[type="button"].btn-block {
 }
 
 .collapse:not(.show) {
-  display: none;
+  display: block;
 }
 
 .collapsing {
@@ -4586,7 +4586,7 @@ input[type="button"].btn-block {
         flex-basis: auto;
   }
   .navbar-expand-sm .navbar-toggler {
-    display: inline-block;
+    display: none;
   }
 }
 
@@ -4781,7 +4781,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-expand .navbar-toggler {
-  display: none;
+  display: block;
 }
 
 .navbar-light .navbar-brand {
